@@ -14,8 +14,8 @@ class Client {
 			}
 		};
 	}
-	tick(now) {
-
+	tick(now)
+	{
 		this.time.calcdt(now);
 		// next frame of animation
 		requestAnimationFrame((time) => {
@@ -26,7 +26,8 @@ class Client {
 		// rendering the scene
 		this.scene.render();
 	}
-	sceneChange(scene) {
+	sceneChange(scene)
+	{
 		this.scene = scene;
 	}
 }
