@@ -5,7 +5,7 @@ class Camera {
 		this.Rot = Rot;
 		this.dir = 0;
 
-		this.actualCamera = new THREE.PerspectiveCamera(75, 800/600, 0.1, 1000); // creating the camera in 3D space
+		this.actualCamera = new THREE.PerspectiveCamera(75, (window.innerWidth * 0.8)/(window.innerHeight * 0.8), 0.1, 1000); // creating the camera in 3D space
 		scene.addToScene(this.actualCamera);
 
 		this.actualCamera.position.x = this.Pos.x;
@@ -22,5 +22,11 @@ class Camera {
 		this.actualCamera.position.z = newPosition.z;
 
 		this.actualCamera.lookAt(this.Rot.x, this.Rot.y, this.Rot.z);
+	}
+	updateVeiwport()
+	{
+		this.actualCamera.fov = (window.innerHeight * 0.8) / (window.screen.height * 0.8);
+	    this.actualCamera.aspect = (window.innerWidth * 0.8) / (window.innerHeight * 0.8);
+		this.actualCamera.updateProjectionMatrix();
 	}
 }

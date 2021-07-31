@@ -1,0 +1,11 @@
+
+.posTracker {
+	background-color: #eeeeee;
+	font-family: sans-serif;
+	height: 40px;
+	line-height: 2.5;
+	position: absolute;
+	text-align: center;
+	user-select: none;
+	width: 50px;
+}
