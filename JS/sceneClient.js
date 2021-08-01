@@ -22,22 +22,22 @@ class Scene {
 		this.yPos = document.getElementById('yLoc');
 		this.zPos = document.getElementById('zLoc');
 
-		// this.handler = new avatarHandler();
+		this.handler = new avatarHandler();
 
 		this.testActor = this.createAvatar(new Vector3(0, 0, 0));
 	}
 	createAvatar(location)
 	{
-		let geometry = new THREE.BoxGeometry( location.x, location.y, location.z );
-		let material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+		// let geometry = new THREE.BoxGeometry( location.x, location.y, location.z );
+		// let material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
 
-		let box = new THREE.Mesh( geometry, material );
+		// let box = new THREE.Mesh( geometry, material );
 
-		// let avatar = this.handler.createAvatar(new Vector3(0, 0, 0));
+		let avatar = this.handler.createAvatar(new Vector3(0, 0, 0));
 		
-		this.addToScene(box);
+		this.addToScene(avatar.mesh);
 
-		return box;
+		return avatar;
 	}
 	addToScene(Thing) {
 		this.scene.add(Thing);

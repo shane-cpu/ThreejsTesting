@@ -7,21 +7,61 @@ class avatarHandler
 	}
 	createAvatar(loc, player)
 	{
-		let verticesOfAvatar = [
-		    -1,-1,-1,    1,-1,-1,    1, 1,-1,    -1, 1,-1,
-		    -1,-1, 1,    1,-1, 1,    1, 1, 1,    -1, 1, 1,
-		];
+		let geometry = new THREE.BufferGeometry();
 
-		let indicesOfFaces = [
-		    2,1,0,    0,3,2,
-		    0,4,7,    7,3,0,
-		    0,1,5,    5,4,0,
-		    1,2,6,    6,5,1,
-		    2,3,7,    7,6,2,
-		    4,5,6,    6,7,4
-		];
+		// Every Three Is A Triangle
+		let verticesOfAvatar = new Float32Array ([
+		    -1.0, -1.0,  1.0,
+			 1.0, -1.0,  1.0,
+			 1.0,  1.0,  1.0,
 
-		let geometry = new THREE.PolyhedronGeometry( verticesOfAvatar, indicesOfFaces, 1, 1 );
+			 1.0,  1.0,  1.0,
+			-1.0,  1.0,  1.0,
+			-1.0, -1.0,  1.0,
+
+			 1.0, -1.0,  1.0,
+			 1.0, -1.0, -1.0,
+			 1.0,  1.0, -1.0,
+
+			 1.0,  1.0, -1.0,
+			 1.0,  1.0,  1.0,
+			 1.0, -1.0,  1.0,
+
+			 1.0, -1.0, -1.0,
+			-1.0, -1.0, -1.0,
+			-1.0,  1.0, -1.0,
+
+			-1.0,  1.0, -1.0,
+			 1.0,  1.0, -1.0,
+			 1.0, -1.0, -1.0,
+
+			-1.0, -1.0, -1.0,
+			-1.0, -1.0,  1.0,
+			-1.0,  1.0,  1.0,
+
+			-1.0,  1.0,  1.0,
+			-1.0,  1.0, -1.0,
+			-1.0, -1.0, -1.0,
+
+			-1.0,  1.0,  1.0,
+			 1.0,  1.0,  1.0,
+			 1.0,  1.0, -1.0,
+
+			 1.0,  1.0, -1.0,
+			-1.0,  1.0, -1.0,
+			-1.0,  1.0,  1.0,
+
+			 1.0,  -1.0, -1.0,
+			 1.0,  -1.0,  1.0,
+			-1.0,  -1.0,  1.0,
+
+			-1.0,  -1.0,  1.0,
+			-1.0,  -1.0, -1.0,
+			 1.0,  -1.0, -1.0,
+		]);
+
+		geometry.setAttribute( 'position', new THREE.BufferAttribute( verticesOfAvatar, 3 ) );
+
 
 		let material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 
@@ -35,7 +75,7 @@ class avatarHandler
 
 		this.avatars.push(avatar);
 
-		return  avatar;
+		return avatar;
 	}
 	updateAvatars()
 	{
