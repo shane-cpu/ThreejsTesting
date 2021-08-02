@@ -33,7 +33,9 @@ class Scene {
 
 		// let box = new THREE.Mesh( geometry, material );
 
-		let avatar = this.handler.createAvatar(new Vector3(0, 0, 0));
+		// this.addToScene(box);
+
+		let avatar = this.handler.createAvatar(new Vector3(0, 0, 0), new Vector3(1, 1, 1), true);
 		
 		this.addToScene(avatar.mesh);
 
